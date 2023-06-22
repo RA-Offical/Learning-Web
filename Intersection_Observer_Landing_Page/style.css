@@ -1,0 +1,252 @@
+:root {
+	--clr-blue: #0f2134;
+	--clr-lime: #23a62c;
+	--clr-gray-100: #f4f4f4;
+	--clr-white: #fff;
+	--clr-black-100: #333;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font: inherit;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+img {
+	max-width: 100%;
+	display: block;
+}
+
+body {
+	font-size: 1.6rem;
+	font-family: "Roboto", sans-serif;
+	line-height: 1.5;
+	color: var(--clr-black-100);
+	min-height: 100vh;
+	overflow-x: hidden;
+}
+
+.link {
+	color: inherit;
+}
+
+.header {
+	--clr-text: var(--clr-gray-100);
+	--clr-inverted: var(--clr-black-100);
+	--clr-bg: transparent;
+
+	display: flex;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	justify-content: space-between;
+	align-items: center;
+	color: var(--clr-text);
+	background-color: var(--clr-bg);
+	padding: 1.5em 3em;
+	z-index: 999;
+	transition: background 250ms;
+}
+
+.header.header--scroll {
+	--clr-text: var(--clr-black-100);
+	--clr-bg: var(--clr-gray-100);
+	--clr-inverted: var(--clr-bg);
+	box-shadow: 0px 8px 15px -10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-list {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	list-style-type: none;
+}
+
+.nav-list--secondary {
+	gap: 1.5rem;
+}
+
+.nav__link {
+	--spacer: 1em;
+	font-size: 1.44rem;
+	text-decoration: none;
+	color: inherit;
+	display: inline-block;
+	padding: calc(var(--spacer) / 2) var(--spacer);
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	position: relative;
+}
+
+.nav__link::after {
+	content: "";
+	position: absolute;
+	left: var(--spacer);
+	right: var(--spacer);
+	bottom: 0;
+	height: 2px;
+	background-color: var(--clr-text);
+	transform: scaleX(0);
+	transition: transform 250ms;
+}
+
+.nav__link:hover::after {
+	transform: scaleX(1);
+}
+
+/* navigation buttons */
+.nav__link--btn {
+	padding: 1rem 2rem;
+	border-radius: 9999px;
+	font-weight: 500;
+	border: 1px solid currentColor;
+	transition: background-color 250ms, color 250ms;
+}
+
+.nav__link--btn:hover {
+	background-color: var(--clr-text);
+	color: var(--clr-inverted);
+}
+
+.nav__link--btn-join {
+	background-color: var(--clr-lime);
+	color: var(--clr-inverted);
+}
+
+.nav__link--btn-join:hover {
+	background-color: var(--clr-text);
+}
+
+.nav__link--btn::after {
+	display: none;
+}
+
+/* logo */
+.logo {
+	color: inherit;
+	font-family: "Barlow Condensed", sans-serif;
+	font-size: 1.9rem;
+	font-weight: 900;
+}
+
+.logo a {
+	text-decoration: none;
+}
+
+/* hero section */
+.hero {
+	display: flex;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--clr-blue);
+}
+
+.hero__title {
+	font-family: "Barlow Condensed", sans-serif;
+	font-size: 3rem;
+	color: var(--clr-gray-100);
+	font-weight: 700;
+}
+
+.section {
+	--spacer: 4em;
+	padding-top: var(--spacer);
+	padding-bottom: var(--spacer);
+}
+
+.about {
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+.section-info {
+	margin-bottom: 2em;
+}
+
+.section__title {
+	font-size: 3rem;
+	font-weight: 700;
+	margin-bottom: 0.5em;
+}
+
+.services {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 2rem;
+}
+
+.service__title {
+	font-size: 2rem;
+	font-weight: 500;
+}
+
+.service-content {
+	margin-top: 1rem;
+}
+
+.fade-in {
+	opacity: 0;
+	transition: opacity 500ms;
+}
+.fade-in.appear {
+	opacity: 1;
+}
+
+/* facilities */
+
+.facility {
+	display: grid;
+	grid-template-columns: minmax(1em, 1fr) repeat(2, minmax(250px, 450px)) minmax(
+			1em,
+			1fr
+		);
+	background-color: var(--clr-gray-100);
+	gap: 2rem;
+	align-items: center;
+	grid-auto-flow: column;
+}
+
+.facility__img {
+	min-width: 50px;
+	min-height: 50px;
+	grid-column: 2 / 3;
+}
+
+.facility-content {
+	grid-column: 3 / 4;
+}
+
+.facility:nth-child(even) .facility__img {
+	grid-column: 3 / 4;
+}
+.facility:nth-child(even) .facility-content {
+	grid-column: 2 / 3;
+}
+
+.slide-left {
+	transform: translateX(70%);
+	opacity: 0;
+	transition: transform 500ms, opacity 500ms;
+}
+
+.slide-right {
+	transform: translateX(-70%);
+	opacity: 0;
+	transition: transform 500ms, opacity 500ms;
+}
+
+.slide-left.appear,
+.slide-right.appear {
+	transform: translateX(0);
+	opacity: 1;
+}
