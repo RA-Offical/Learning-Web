@@ -16,6 +16,13 @@ This project I have to done to learn about the form interfaces. I explore follow
 - How to clearly show message to the user what to enter in form fields.
 
 ### Ableton
-
+This project is live on following link: https://ra-ableton-clone.netlify.app
+This project is based on real website Ableton. It was challange to create the homepage of this website. I successfully completed challange and learn alot from mistakes I make. Here is what I learned from this project.
+- How to make toggle between mobile and desktop navbar.
+- Complex use case of grid.
+- How to use images effectively.
+- How to embed videos in website.
+- Forms.
+- Responsivness.
 
   
